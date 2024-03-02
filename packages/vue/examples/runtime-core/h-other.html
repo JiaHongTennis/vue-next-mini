@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../dist//vue.js"></script>
+</head>
+<body>
+  
+</body>
+<script>
+  const { h, Text, Comment, Fragment } = Vue
+
+  const vnodeText = h(Text, '这事一个Text')
+  console.log(vnodeText)
+
+  const vnodeComponent = h(Comment, '这是一个 Component')
+  console.log(vnodeComponent)
+
+  const vnodeFragment = h(Text, '这事一个 Fragment')
+  console.log(vnodeFragment)
+</script>
+</html>

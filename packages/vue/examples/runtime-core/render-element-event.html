@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../dist//vue.js"></script>
+</head>
+<style>
+  .active {
+    color: pink;
+    font-size: 20px;
+    font-weight: 700;
+  }
+</style>
+<body>
+  <div id="app"></div>
+</body>
+<script>
+  const { h, render } = Vue
+
+  const vnode = h('button', {
+    onClick () {
+      window.alert('单击')
+    }
+  }, '单击')
+  render(vnode, document.querySelector('#app'))
+
+  setTimeout(() => {
+    const vnode2 = h('button', {
+      onDblclick () {
+        window.alert('双击')
+      }
+    }, '双击')
+    render(vnode2, document.querySelector('#app'))
+  }, 2000);
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../dist//vue.js"></script>
+</head>
+<style>
+  .active {
+    color: pink;
+    font-size: 20px;
+    font-weight: 700;
+  }
+</style>
+<body>
+  <div id="app"></div>
+</body>
+<script>
+  const { h, render } = Vue
+
+  // 组件
+  const component = {
+    render () {
+      return h('div', 'hello component')
+    }
+  }
+  const vnode = h(component)
+  render(vnode, document.querySelector('#app'))
+
+  setTimeout(() => {
+    // 这是一个新的额对象
+    const component2 = {
+      data () {
+        return {
+          name: '林佳宏'
+        }
+      },
+      render () {
+        return h('div', this.name)
+      }
+    }
+    const vnode2 = h(component2)
+    render(vnode2, document.querySelector('#app'))
+  }, 2000)
+</script>
+</html>

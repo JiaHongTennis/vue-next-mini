@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../dist//vue.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="app2"></div>
+</body>
+<script>
+  const { ref, effect } = Vue
+
+  const obj = ref('张三')
+
+  console.log(obj)
+
+  effect(() => {
+    document.querySelector('#app').innerText = obj.value
+  })
+
+  setTimeout(() => {
+    obj.value = '林佳红'
+  }, 2000)
+
+  // effect(() => {
+  //   document.querySelector('#app2').innerText = obj.name
+  // })
+</script>
+</html>

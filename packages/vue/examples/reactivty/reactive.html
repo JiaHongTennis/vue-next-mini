@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../dist//vue.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="app2"></div>
+</body>
+<script>
+  const { reactive, effect } = Vue
+
+  const obj = reactive({
+    name: '张三'
+  })
+
+  console.log(obj)
+
+  effect(() => {
+    document.querySelector('#app').innerText = obj.name
+  })
+
+  effect(() => {
+    document.querySelector('#app2').innerText = obj.name
+  })
+
+  setTimeout(() => {
+    obj.name = '林佳红'
+  }, 2000)
+
+  // const p1 = {
+  //   lastName: '林',
+  //   firstName: '佳宏',
+  //   get fullName () {
+  //     console.log('p1 get')
+  //     return this.lastName + this.firstName
+  //   }
+  // }
+
+  // const proxy = new Proxy(p1, {
+  //   get (target, key, receiver) {
+  //     console.log('我被触发了几次', target, key, receiver)
+  //     // return target[key]
+  //     return Reflect.get(target, key, receiver)
+  //   }
+  // })
+
+  // console.log(proxy.fullName)
+  // console.log(p1.fullName)
+  // console.log(p1.fullName)
+</script>
+</html>
